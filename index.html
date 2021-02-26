@@ -161,13 +161,17 @@
         $table.append($tableHtmlHead);
         var $tableHtmlBody = $("<tbody></tbody>");
 
+        var numColumns = tableDataHeaderRow.length;
+
         for (var rowIdx = 1; rowIdx < tableData.length; rowIdx++) {
           var $tableHtmlBodyRow = $("<tr></tr>");
-          for (var colIdx = 0; colIdx < tableData[rowIdx].length; colIdx++) {
-            var $tableHtmlBodyRowTd = $("<td></td>");
-            $tableHtmlBodyRowTd.text(tableData[rowIdx][colIdx]);
-            $tableHtmlBodyRow.append($tableHtmlBodyRowTd);
-            $tableHtmlBody.append($tableHtmlBodyRow);
+          if (tableData[rowIdx].length === numColumns) {
+            for (var colIdx = 0; colIdx < tableData[rowIdx].length; colIdx++) {
+              var $tableHtmlBodyRowTd = $("<td></td>");
+              $tableHtmlBodyRowTd.text(tableData[rowIdx][colIdx]);
+              $tableHtmlBodyRow.append($tableHtmlBodyRowTd);
+              $tableHtmlBody.append($tableHtmlBodyRow);
+            }
           }
         }
 
