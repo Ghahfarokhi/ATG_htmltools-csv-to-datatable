@@ -24,6 +24,10 @@
           left: 50%;
           transform: translate(-50%, -50%);
       }
+      div.dataTables_wrapper {
+        min-width: 800px;
+        margin: 0 auto;
+      }
     </style>
 </head>
 <body>
@@ -42,7 +46,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>  
   <script type="text/javascript">
     /***********************
     Script sections:
@@ -138,7 +141,7 @@
     3- Array to HTML
     ************************/
     $("#tableTitle").text(table_title);
-    var $table = $('<table id="example" class="table table-striped table-bordered dt-responsive" style="width:100%">');
+    var $table = $('<table id="example" class="display nowrap table table-striped" style="width:100%">');
     var $tableContainer = $("#tableContainer");
     $tableContainer.empty().append($table);
 
@@ -157,7 +160,7 @@
         $table.append($tableHtmlHead);
         var $tableHtmlBody = $("<tbody></tbody>");
 
-        for (var rowIdx = 1; rowIdx < tableData.length - 1; rowIdx++) {
+        for (var rowIdx = 1; rowIdx < tableData.length; rowIdx++) {
           var $tableHtmlBodyRow = $("<tr></tr>");
           for (var colIdx = 0; colIdx < tableData[rowIdx].length; colIdx++) {
             var $tableHtmlBodyRowTd = $("<td></td>");

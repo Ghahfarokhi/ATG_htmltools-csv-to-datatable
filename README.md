@@ -18,10 +18,15 @@ The data file could either be provided via a URL parameter [intended usage] or h
 
 ### Demo
 
-URL below is a [demo](https://amirtaheri.info/htmltools-csv-to-datatable/index.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo) on how it can be used. Note the format of parameters used after the `?` mark in the url.
+Note the format of parameters used after the `?` mark in the url examples below:
 
+* **Tab separated**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/index.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/index.html?table_name=data/tab_separated_table.tsv&table_title=CSV to Datatable Demo
+```
+* **Semicolon separated**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/index.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
+```
+https://amirtaheri.info/htmltools-csv-to-datatable/index.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;
 ```
 
 ### Run on localhost
