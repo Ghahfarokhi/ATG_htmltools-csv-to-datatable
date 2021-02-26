@@ -46,6 +46,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> 
   <script type="text/javascript">
     /***********************
     Script sections:
@@ -141,7 +142,7 @@
     3- Array to HTML
     ************************/
     $("#tableTitle").text(table_title);
-    var $table = $('<table id="example" class="display nowrap table table-striped" style="width:100%">');
+    var $table = $('<table id="example" class="display nowrap table table-striped dt-responsive" style="width:100%">');
     var $tableContainer = $("#tableContainer");
     $tableContainer.empty().append($table);
 
