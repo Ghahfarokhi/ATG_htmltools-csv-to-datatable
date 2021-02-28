@@ -76,6 +76,7 @@
       <li><b>separator</b>: optional  (values: , or ;  or : ), default=tab.</li>
       <li><b>paging</b>: optional  (values: true or false), default=true</li>
       <li><b>column_filtering</b>: optional (values: true or false), default=false.</li>
+      <li><b>scroll_x</b>: optional  (values: true or false), default=true</li>
       <li><b>style</b>: optional (values: none, display, compact, stripe, hover, cell-border, row-border, 
         order-column), default=display,compact. 
         Multiple value combinations can be used together, separated using a comma.</li>
@@ -168,6 +169,8 @@
     var separator = urlParams.get('separator') || '\t';
     var column_filtering = urlParams.get('column_filtering') || false;
     var style = urlParams.get('style') || 'display,compact';
+    var paging = urlParams.get('paging') || true;
+    var scroll_x = urlParams.get('scroll_x') || true;
 
     /* Sanitize url parameters */
     if (table_name !== false) {
@@ -205,11 +208,16 @@
       var column_filtering = false;
     }
 
-    var paging = urlParams.get('paging') || true;
     if (paging === '0' || paging === 'false') {
       var paging = false;
     } else {
       var paging = true;
+    }
+
+    if (scroll_x === '0' || scroll_x === 'false') {
+      var scroll_x = false;
+    } else {
+      var scroll_x = true;
     }
 
     style = style.replace(',' , ' ');
@@ -347,8 +355,9 @@
         
         var table = $('#example').DataTable( {
           "lengthChange": true,
-          "scrollX": true,
+          "scrollX": scroll_x,
           "orderCellsTop": true,
+          "paging": paging
         }).columns.adjust();
 
       } else {
@@ -357,12 +366,13 @@
           $("#tableContainer").attr("id", "container"); 
           $("#loaderContainer").css("display","none");}).DataTable({
             "lengthChange": true,
-            "scrollX": true,
+            "scrollX": scroll_x,
             "paging": paging
           }
         ).columns.adjust(); // End table.on
-      }
-    } // End Function
+
+      } // End if else
+    } // End Function drawDataTable
 
     if (table_name === false) {
       /* Let's make a dummy array */

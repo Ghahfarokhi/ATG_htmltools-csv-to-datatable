@@ -23,13 +23,13 @@ The data file could either be provided via a URL parameter [intended usage] or h
 
 Note the format of parameters used after the `?` mark in the url examples below:
 
-* **Tab separated**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
+* **Tab separated**: [default tsv demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV to Datatable Demo
 ```
 
 
-* **Semicolon separated**: `&separator=;` [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
+* **Semicolon separated**: `&separator=;` [semicolon separated demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;
 ```
@@ -50,13 +50,14 @@ https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/se
   * and so on!
 
 
-* **Column filtering**: `&column_filtering=true` [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
+* **Column filtering**: `&column_filtering=true` [Column filtering demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&column_filtering=true
 ```
 
+* **Large datatables scrollX**: default value is true, to disable use `&scroll_x=false` [disables scroll_x demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false) 
 
-* **No parameter provided**: a guideline and a dummy array will be rendered, [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html)
+* **No parameter provided**: a guideline and a dummy array will be rendered, [No parameter demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html
 ```
