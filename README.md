@@ -36,14 +36,13 @@ https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/se
 
 
 * **Styling**: See examples below:
-  * Default `&style=display,compact` : [default](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
+  * `&style=display,compact` : [default](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
   * `&style=none` : [none](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=none)
   * `&style=display` : [display](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display)
   * `&style=compact` : [compact](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=compact)
   * `&style=stripe` : [stripe](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=stripe)
   * `&style=hover` : [hover](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=hover)
-  * `&style=cell-border` : [cell-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?ta
-  ble_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=cell-border)
+  * `&style=cell-border` : [cell-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=cell-border)
   * `&style=row-border` : [row-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=row-border)
   * `&style=order-column` : [order-column](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=order-column)
   * `&style=hover,cell-border` : [hover,cell-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=hover,cell-border)
