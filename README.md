@@ -28,10 +28,12 @@ Note the format of parameters used after the `?` mark in the url examples below:
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV to Datatable Demo
 ```
 
+
 * **Semicolon separated**: `&separator=;` [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;
 ```
+
 
 * **Styling**: See examples below:
   * Default `&style=display,compact` : [default](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
@@ -45,13 +47,15 @@ https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/se
   * `&style=row-border` : [row-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=row-border)
   * `&style=order-column` : [order-column](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=order-column)
   * `&style=hover,cell-border` : [hover,cell-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=hover,cell-border)
-  * `&style=display,compact,cell-border` : [display,compact,cell-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display,compact,cell-border)
+  * `&style=stripe,compact` : [stripe,compact](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=stripe,compact)
   * and so on!
+
 
 * **Column filtering**: `&column_filtering=true` [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&column_filtering=true
 ```
+
 
 * **No parameter provided**: a guideline and a dummy array will be rendered, [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html)
 ```
