@@ -193,10 +193,10 @@
       }
     }
 
-    if (column_filtering === '0' || column_filtering === 'false') {
-      var column_filtering = false;
-    } else {
+    if (column_filtering === '1' || column_filtering === 'true') {
       var column_filtering = true;
+    } else {
+      var column_filtering = false;
     }
 
     var paging = urlParams.get('paging') || true;
