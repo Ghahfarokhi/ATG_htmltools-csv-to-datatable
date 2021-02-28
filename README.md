@@ -1,7 +1,7 @@
 # CSV/TSV files to HTML DataTable
 
 Render any csv/tsv file into a **responsive**, **sortable**, and **searchable** HTML datatable without any serverside scripting. 
-The data file could either be provided via a URL parameter [intended usage] or hard coded into the HTML codes. If the URL parameter is used, then the `table.html` file is all-in-one file that includes html, javascript and css codes, so it doesn't need to be acompanied by any other helper folder or files. It can be essentially used as a general purpose tool to visualize data. It can also be renamed to fit the naming schema of a project. In principle, it should be possible to run it on any server. 
+The data file could either be provided via a URL parameter [intended usage] or hard coded into the HTML codes. If the URL parameter is used, then the `table.html` file is a stand-alone file that includes all needed html, javascript and css codes, so it doesn't need to be acompanied by any other helper folder or files. It can be essentially used as a general purpose tool to display tabular data. In principle, it should be possible to run it on any server. 
 
 
 [<img src="https://raw.githubusercontent.com/Ghahfarokhi/ghahfarokhi.github.io/main/assets/img/htmltools-csv-to-datatable.png">](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
@@ -58,7 +58,7 @@ git clone https://github.com/Ghahfarokhi/htmltools-csv-to-datatable.git
 cd htmltool_csv_to_datatable
 php -S localhost:8080
 ```
-Open Google Chrome and navigate to `http://localhost:8080/`.
+Open Google Chrome and navigate to `http://localhost:8080/table.html`.
 
 ### References
 

@@ -109,7 +109,7 @@
     </div>
   </div>
 
-  <!-- Scripts are placed here to help with page loading faster -->
+  <!-- Scripts are placed here to help with the page loading faster -->
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 
@@ -118,8 +118,8 @@
     Script sections:
       0- Helper functions
       1- Read URL Arguments
-      2- CSV to Array
-      3- Array to HTML
+      2- CSVtoArray function
+      3- ArraytoHTML Function
     ************************/
 
     /************************ 
@@ -134,6 +134,22 @@
       var anyText =  String(anyText);
       anyText = anyText.replace(/[^A-Z0-9a-z_.\/-_ ,;:*+=]/gi,'');
       return (anyText);
+    }
+
+    function generateArray(numRow, numCol){
+      var myArray = new Array(numRow);
+      for (var i = 0; i < myArray.length; i++) {
+        myArray[i] = new Array(numCol);
+      }
+      for (var j = 0; j < numCol;j++) {
+        myArray[0][j] = 'Col_' + pad(j+1, 2);
+      }
+      for (i = 1; i < numRow; i++) {
+        for (j = 0; j < numCol; j++) {
+          myArray[i][j] = 'R_' + pad(i, 2) + ' , C_' + pad(j+1, 2);
+        }
+      }
+      return myArray;
     }
 
     /************************ 
@@ -264,12 +280,11 @@
     /************************ 
     3- Array to HTML
     ************************/
-    $("#tableTitle").text(table_title);
-    var $table = $('<table id="example" class="nowrap" style="width:100%">');
-    var $tableContainer = $("#tableContainer");
-    $tableContainer.empty().append($table);
-    
     function drawDataTable() {
+      $("#tableTitle").text(table_title);
+      var $table = $('<table id="example" class="nowrap" style="width:100%">');
+      var $tableContainer = $("#tableContainer");
+      $tableContainer.empty().append($table);
       var $tableHtmlHead = $("<thead></thead>");
       var tableDataHeaderRow = tableData[0];
       var $tableHtmlHeadRow = $("<tr></tr>");
@@ -343,22 +358,10 @@
       }
     } // End Function
 
-
     if (table_name === false) {
       /* Let's make a dummy array */
-      tableData = new Array(53);
-      for (var i = 0; i < tableData.length; i++) {
-        tableData[i] = new Array(5);
-      }
-      for (var j = 0; j < 5;j++) {
-        tableData[0][j] = 'Col_' + pad(j+1, 2);
-      }
-      for (i = 1; i < 53; i++) {
-        for (j = 0; j < 5; j++) {
-          tableData[i][j] = 'R_' + pad(i, 2) + ' , C_' + pad(j+1, 2);
-        }
-      }
-    drawDataTable();
+      tableData = generateArray(53, 5);
+      drawDataTable();
     } else {
       $.get(table_name).then(
         function (data) {
