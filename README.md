@@ -15,7 +15,8 @@ The data file could either be provided via a URL parameter [intended usage] or h
 * `separator` [optional, default: `\t (tab)`] : specify the delimiter **charachter**; comma `,`, colon `:`, semi-colon `;`.
 * `table_title` [optional, default: `table_name`] : will appear as the title.
 * `paging` [optional, default: `true`] : determines whether the detatable should be wraped into pages. 
-* `style` [optional, default: `display,compact`] other acceptable values include: `none`, `display`, `compact`, `stripe`, `cell-border`, `row-border`, `order-column`. Multiple value combinations can be used together, separated using a comma.
+* `style` [optional, default: `display,compact`] other acceptable values include: `none`, `display`, `compact`, `stripe`, 
+`hover`, `cell-border`, `row-border`, `order-column`. Multiple value combinations can be used together, separated using a comma.
 * `column_filtering` [optional, default: `false`] : will enable per column filtering.
 
 ### Demo
@@ -32,7 +33,7 @@ https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/ta
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;
 ```
 
-* **Styling**: `&stuly=display,striped `[Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display,striped)
+* **Styling**: `&stuly=display,striped` [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display,striped)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&style=display,striped
 ```
@@ -60,10 +61,11 @@ php -S localhost:8080
 ```
 Open Google Chrome and navigate to `http://localhost:8080/table.html`.
 
-### References
+### Dependencies and References
 
-* Main javascript function `CSVToArray` have been obtained from [Ben Nadal](https://www.bennadel.com/blog/1504-ask-ben-parsing-csv-strings-with-javascript-exec-regular-expression-command.htm) with slight modifications.
+* Main javascript function `CSVToArray` have been obtained from [Ben Nadal's blog](https://www.bennadel.com/blog/1504-ask-ben-parsing-csv-strings-with-javascript-exec-regular-expression-command.htm).
 * DataTable HTML codes have been obtained from [datatables.net](https://datatables.net/).
+* JavaScript Library [jQuery](https://jquery.com)
 
 ### Errors
 Please report errors/bugs to: Amir.Taheri.Ghahfarokhi@gmail.com
