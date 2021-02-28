@@ -18,6 +18,7 @@ The data file could either be provided via a URL parameter [intended usage] or h
 * `style` [optional, default: `display,compact`] other acceptable values include: `none`, `display`, `compact`, `stripe`, 
 `hover`, `cell-border`, `row-border`, `order-column`. Multiple value combinations can be used together, separated using a comma.
 * `column_filtering` [optional, default: `false`] : will enable per column filtering.
+* `scroll_x` [optional, default: `true`] : if disabled, then columns will overflow if their width exceeds the screen width.
 
 ### Demo
 
@@ -55,7 +56,10 @@ https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/se
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&column_filtering=true
 ```
 
-* **Large datatables scrollX**: default value is true, to disable use `&scroll_x=false` [disables scroll_x demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false) 
+* **Large datatables scrollX**: default value is true, to disable use `&scroll_x=false` [disabled scroll_x demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false) 
+```
+https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false
+```
 
 * **No parameter provided**: a guideline and a dummy array will be rendered, [No parameter demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html)
 ```
