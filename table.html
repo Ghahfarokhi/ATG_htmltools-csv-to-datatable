@@ -2,7 +2,7 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="description" content="Render csv/tsv files (provided either locally or using html arguments) into HTML DataTable using jquery and bootstrap." />
-    <title>CSV to Responsive DataTable</title>
+    <title>CSV to DataTable</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
     <style>
       body {
@@ -61,7 +61,7 @@
     <p><strong>URL construction</strong></p>
     <p style="color: gray;">
       <b>Example:</b> 
-      https://.../table.html<b style="color: red;">&quest;</b>table_name=data/tab_separated_table.tsv<b style="color: red;">&amp;</b>table_title=myTable<b style="color: red;">&amp;</b>style=display,stripe
+      https://.../table.html<b style="color: red;">&quest;</b>table_name=data/tab_separated_table.tsv<b style="color: red;">&amp;</b>table_title=myTable<b style="color: red;">&amp;</b>style=compact,stripe
       <br>
       <br>
       <b>Demo:</b> <a href="https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo">Visit this link for a working example!</a>
@@ -107,6 +107,9 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
+  </div>
+  <div id="footer">
+    <p style="color: gray; text-align: center; padding: 50px;">CSVtoDatatable</p>
   </div>
 
   <!-- Scripts are placed here to help with the page loading faster -->
