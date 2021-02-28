@@ -11,7 +11,7 @@ The data file could either be provided via a URL parameter [intended usage] or h
 
 ### URL Parameters
 
-* `table_name` [REQUIRED, default: `data/tab_separated_table.tsv`] : path to the csv/tsv file.
+* `table_name` [REQUIRED] : path to the csv/tsv file. If missing, then a general guideline and a dummy array will be rendered.
 * `separator` [optional, default: `\t`] : specify the delimiter **charachter**; comma, colon, semi-colon.
 * `table_title` [optional, default: `table_name`] : will appear as the title.
 * `paging` [optional, default: `true`] : determines whether the detatable should be wraped into pages. 
