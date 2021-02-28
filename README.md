@@ -11,12 +11,12 @@ The data file could either be provided via a URL parameter [intended usage] or h
 
 ### URL Parameters
 
-* `table_name` [REQUIRED] : path to the csv/tsv file. If missing, then a general guideline and a dummy array will be rendered.
-* `separator` [optional, default: `\t`] : specify the delimiter **charachter**; comma, colon, semi-colon.
+* `table_name` [ **REQUIRED** ] : path to the csv/tsv file. If missing, then a general guideline and a dummy array will be rendered.
+* `separator` [optional, default: `\t (tab)`] : specify the delimiter **charachter**; comma `,`, colon `:`, semi-colon `;`.
 * `table_title` [optional, default: `table_name`] : will appear as the title.
 * `paging` [optional, default: `true`] : determines whether the detatable should be wraped into pages. 
-* `style` [optional, default=display,compact] other acceptable values: none, display, compact, stripe, cell-border, row-border, order-column. Multiple value combinations can be used together, separated using a comma.
-* `column_filtering` [optional, default=false] : will enable per column filtering.
+* `style` [optional, default: `display,compact`] other acceptable values include: `none`, `display`, `compact`, `stripe`, `cell-border`, `row-border`, `order-column`. Multiple value combinations can be used together, separated using a comma.
+* `column_filtering` [optional, default: `false`] : will enable per column filtering.
 
 ### Demo
 
@@ -27,17 +27,17 @@ Note the format of parameters used after the `?` mark in the url examples below:
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV to Datatable Demo
 ```
 
-* **Semicolon separated**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
+* **Semicolon separated**: `&separator=;` [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;
 ```
 
-* **Styling**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display,striped)
+* **Styling**: `&stuly=display,striped `[Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display,striped)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&style=display,striped
 ```
 
-* **Column filtering**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
+* **Column filtering**: `&column_filtering=true` [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&column_filtering=true
 ```
