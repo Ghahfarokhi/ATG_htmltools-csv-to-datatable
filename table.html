@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Render csv/tsv files (provided either locally or using html arguments) into HTML DataTable using jquery and bootstrap." />
+    <title>CSV to Responsive DataTable</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      #tableTitle {
+        color: gray;
+        padding-top: 50px;
+        font-size: x-large;
+      }
+
+      #tableContainer {display: none}
+
+      #loaderContainer{
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+
+      th {
+        text-align: left;
+      }
+
+      .btn {
+        text-decoration: none;
+        color: royalblue;
+        background-color: rgb(188, 205, 255);
+        padding: 10px 20px 10px 20px;
+        border-radius: 8px;
+      }
+
+      .btn:hover {
+        color: rgb(188, 205, 255);
+        background-color: royalblue;
+        font-weight: bold;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.282);
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+  <h1 id="tableTitle"></h1>
+  <div id="usage_guide">
+    <p>This is a general purpose tool to render tabular data into resposnive, searchable, and sortable html datatables.</p>
+    <p><strong>Usage guideline</strong></p>
+    <p>This file contains all html, css, and javascript codes needed to read a set of url parameters listed below 
+      and display the datatable which has been pointed to. Simply let this file to live in the root of your 
+      project folder on any server. All the codes will execute on the client-side. 
+    </p>
+    <p><strong>URL construction</strong></p>
+    <p style="color: gray;">
+      <b>Example:</b> 
+      https://.../table.html<b style="color: red;">&quest;</b>table_name=data/tab_separated_table.tsv<b style="color: red;">&amp;</b>table_title=myTable<b style="color: red;">&amp;</b>style=display,stripe
+      <br>
+      <br>
+      <b>Demo:</b> <a href="https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo">Visit this link for a working example!</a>
+    </p>
+    <p><strong>Parameters</strong></p>
+    <ul>
+      <li><b>table_name</b>: required!</li>
+      <li><b>table_title</b>: optional (values: a cutom title), default=table_name.</li>
+      <li><b>separator</b>: optional  (values: , or ;  or : ), default=tab.</li>
+      <li><b>paging</b>: optional  (values: true or false), default=true</li>
+      <li><b>column_filtering</b>: optional (values: true or false), default=false.</li>
+      <li><b>style</b>: optional (values: none, display, compact, stripe, cell-border, row-border, 
+        order-column), default=display,compact. 
+        Multiple value combinations can be used together, separated using a comma.</li>
+    </ul>
+    <hr>
+    <p><strong>Note 1</strong>: Parameters and their values should follow the pattern shown in the example above 
+      (e.g.,&amp;parameterX=valueX&amp;parameterY=valueY and so on). Order of parameters doesn't matter.
+    </p>
+    <p><strong>Note 2</strong>: If you still see this guideline after providing the url paramaters, 
+      then double check the spelling of "<b style="color: royalblue;">table_name</b>".
+    </p>
+    <p><strong>Note 3</strong>: Table text will be sanitized before its addition to the DOM, meaning any charachter outside
+      of the following white-list will be removed before appending the cell text to the datatable. 
+      The white-list is limited to: <b>A-Za-z0-9/,:;.-_*-+</b>. Developers: consult the <i>generalStringSanitizer</i> function if a 
+      more relaxed sanitizer is needed.
+    </p>
+    <br>
+  </div>
+  <hr>
+  <div id="tableContainer" class="m-5"></div>
+  <div id="loaderContainer">
+    <div class="d-flex justify-content-center text-secondary" id="loader">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts are placed here to help with page loading faster -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+  <script type="text/javascript">
+    /***********************
+    Script sections:
+      0- Helper functions
+      1- Read URL Arguments
+      2- CSV to Array
+      3- Array to HTML
+    ************************/
+
+    /************************ 
+    0- Helper Functions
+    ************************/
+    function pad(num, size) {
+      var s = "00000000" + num;
+      return s.substr(s.length-size);
+    }
+
+    function generalStringSanitizer(anyText) {
+      var anyText =  String(anyText);
+      anyText = anyText.replace(/[^A-Z0-9a-z_.\/-_ ,;:*+=]/gi,'');
+      return (anyText);
+    }
+
+    /************************ 
+    1- Read URL Argument(s) 
+    ************************/
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var table_name = urlParams.get('table_name') || false;
+    var table_title = urlParams.get('table_title') || table_name;
+    var separator = urlParams.get('separator') || '\t';
+    var column_filtering = urlParams.get('column_filtering') || false;
+    var style = urlParams.get('style') || 'display,compact';
+
+    /* Sanitize url parameters */
+    if (table_name !== false) {
+      table_name = table_name.replace(/[^A-Z0-9a-z_.\/-]/gi,'');
+      table_name = table_name.replace('//','/');
+      table_title = table_title.replace(/[^A-Z0-9a-z _.\/-]/gi,'');
+    }
+    separator = separator.replace(/[^:;,]/gi,'');
+    style = style.replace(/[^A-Za-z,-]/gi,'');
+
+    /* Validate url parameters */
+    if (table_name === false) {
+      /* Show some hints */
+      var table_title = 'ATG DataTable Tool v0.1';
+      $("#usage_guide").css("display","block");
+      $("#loaderContainer").css("display","none");
+    } else {
+      /* check if table_name exists */
+      var table_file = new XMLHttpRequest();
+      table_file.open('HEAD', table_name, false);
+      table_file.send();
+      if (table_file.status != 200) {
+        table_title = "Errrrr! Couldn't find: " + table_name;
+        $("#loaderContainer").css("display","none");
+        $("#usage_guide").css("display","block");
+        $("#usage_guide").text('Please double-check the spelling of the value for table_name!');
+      } else {
+        $("#usage_guide").css("display","none");
+      }
+    }
+
+    if (column_filtering === '0' || column_filtering === 'false') {
+      var column_filtering = false;
+    } else {
+      var column_filtering = true;
+    }
+
+    var paging = urlParams.get('paging') || true;
+    if (paging === '0' || paging === 'false') {
+      var paging = false;
+    } else {
+      var paging = true;
+    }
+
+    style = style.replace(',' , ' ');
+    style = style.replace('none' , ' ');
+
+    /************************ 
+    2- CSV to Array 
+    ************************/
+    function CSVToArray(strData, strDelimiter){
+      // CSVToArray Source: https://www.bennadel.com/blog/1504-ask-ben-parsing-csv-strings-with-javascript-exec-regular-expression-command.htm
+      // This will parse a delimited string into an array of
+      // arrays. The default delimiter is the comma, but this
+      // can be overriden in the second argument.
+      // Check to see if the delimiter is defined. If not,
+      // then default to tab.
+      strDelimiter = (strDelimiter || "\t");
+      // Create a regular expression to parse the CSV values.
+      var objPattern = new RegExp(
+        (
+          // Delimiters.
+          "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+          // Quoted fields.
+          "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+          // Standard fields.
+          "([^\"\\" + strDelimiter + "\\r\\n]*))"
+        ),
+        "gi"
+        );
+      // Create an array to hold our data. Give the array
+      // a default empty first row.
+      var arrData = [[]];
+      // Create an array to hold our individual pattern
+      // matching groups.
+      var arrMatches = null;
+      // Keep looping over the regular expression matches
+      // until we can no longer find a match.
+      while (arrMatches = objPattern.exec( strData )){
+        // Get the delimiter that was found.
+        var strMatchedDelimiter = arrMatches[ 1 ];
+        // Check to see if the given delimiter has a length
+        // (is not the start of string) and if it matches
+        // field delimiter. If id does not, then we know
+        // that this delimiter is a row delimiter.
+        if (
+          strMatchedDelimiter.length &&
+          (strMatchedDelimiter != strDelimiter)
+          ){
+          // Since we have reached a new row of data,
+          // add an empty row to our data array.
+          arrData.push( [] );
+        }
+        // Now that we have our delimiter out of the way,
+        // let's check to see which kind of value we
+        // captured (quoted or unquoted).
+        if (arrMatches[ 2 ]){
+          // We found a quoted value. When we capture
+          // this value, unescape any double quotes.
+          var strMatchedValue = arrMatches[ 2 ].replace(
+            new RegExp( "\"\"", "g" ),
+            "\""
+            );
+        } else {
+          // We found a non-quoted value.
+          var strMatchedValue = arrMatches[ 3 ];
+        }
+        // Now that we have our value string, let's add
+        // it to the data array.
+        arrData[ arrData.length - 1 ].push( strMatchedValue );
+      }
+      // Return the parsed data.
+      return( arrData );
+    }
+
+    /************************ 
+    3- Array to HTML
+    ************************/
+    $("#tableTitle").text(table_title);
+    var $table = $('<table id="example" class="nowrap" style="width:100%">');
+    var $tableContainer = $("#tableContainer");
+    $tableContainer.empty().append($table);
+    
+    function drawDataTable() {
+      var $tableHtmlHead = $("<thead></thead>");
+      var tableDataHeaderRow = tableData[0];
+      var $tableHtmlHeadRow = $("<tr></tr>");
+
+      for (var headerIdx = 0; headerIdx < tableDataHeaderRow.length; headerIdx++) {
+        $tableHtmlHeadRow.append($("<th></th>").text(tableDataHeaderRow[headerIdx]));
+      }
+
+      $tableHtmlHead.append($tableHtmlHeadRow);
+      $table.append($tableHtmlHead);
+      var $tableHtmlBody = $("<tbody></tbody>");
+
+      var numColumns = tableDataHeaderRow.length;
+
+      for (var rowIdx = 1; rowIdx < tableData.length; rowIdx++) {
+        var $tableHtmlBodyRow = $("<tr></tr>");
+        if (tableData[rowIdx].length === numColumns) {
+          for (var colIdx = 0; colIdx < tableData[rowIdx].length; colIdx++) {
+            var $tableHtmlBodyRowTd = $("<td></td>");
+            $tableHtmlBodyRowTd.text(generalStringSanitizer(tableData[rowIdx][colIdx]));
+            $tableHtmlBodyRow.append($tableHtmlBodyRowTd);
+            $tableHtmlBody.append($tableHtmlBodyRow);
+          }
+        }
+      }
+
+      if (style !== 'none') {
+        $("#example").addClass(style);
+      }
+
+      $table.append($tableHtmlBody);
+      $tableContainer.append("<p><a class='btn' href='" + table_name + "'>Download Table</a></p>");
+
+      if (column_filtering === true) {
+        $('#example thead tr').clone(true).appendTo( '#example thead' );
+        $('#example thead tr:eq(1) th').each( function (i) {
+          var title = $(this).text();
+          $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+          $( 'input', this ).on( 'keyup change', function () {
+            if ( table.column(i).search() !== this.value ) {
+              table
+                .column(i)
+                .search( this.value )
+                .draw();
+            }
+          });
+        });
+
+        $table.on('draw.dt', function () {
+          $("#tableContainer").attr("id", "container"); 
+          $("#loaderContainer").css("display","none");
+          }
+        );
+        
+        var table = $('#example').DataTable( {
+          "lengthChange": true,
+          "scrollX": true,
+          "orderCellsTop": true,
+        }).columns.adjust();
+
+      } else {
+
+        $table.on('draw.dt', function () {
+          $("#tableContainer").attr("id", "container"); 
+          $("#loaderContainer").css("display","none");}).DataTable({
+            "lengthChange": true,
+            "scrollX": true,
+            "paging": paging
+          }
+        ).columns.adjust(); // End table.on
+      }
+    } // End Function
+
+
+    if (table_name === false) {
+      /* Let's make a dummy array */
+      tableData = new Array(53);
+      for (var i = 0; i < tableData.length; i++) {
+        tableData[i] = new Array(5);
+      }
+      for (var j = 0; j < 5;j++) {
+        tableData[0][j] = 'Col_' + pad(j+1, 2);
+      }
+      for (i = 1; i < 53; i++) {
+        for (j = 0; j < 5; j++) {
+          tableData[i][j] = 'R_' + pad(i, 2) + ' , C_' + pad(j+1, 2);
+        }
+      }
+    drawDataTable();
+    } else {
+      $.get(table_name).then(
+        function (data) {
+          tableData = CSVToArray(data, separator);
+          drawDataTable();
+        }
+      );
+    }
+
+  </script>
+</body>
+</html>
