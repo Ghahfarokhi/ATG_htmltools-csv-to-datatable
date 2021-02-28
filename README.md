@@ -37,12 +37,12 @@ https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/se
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&style=display,striped
 ```
 
-* **Column filtering**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display,striped)
+* **Column filtering**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
 ```
-https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&style=display,striped&column_filtering=true
+https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&column_filtering=true
 ```
 
-* **No parameter provided**: [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html)
+* **No parameter provided**: a guideline and a dummy array will be rendered, [Go to the demo web page](https://amirtaheri.info/htmltools-csv-to-datatable/table.html)
 ```
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html
 ```

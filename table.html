@@ -86,7 +86,7 @@
     </p>
     <p><strong>Note 3</strong>: Table text will be sanitized before its addition to the DOM, meaning any charachter outside
       of the following white-list will be removed before appending the cell text to the datatable. 
-      The white-list is limited to: <b>A-Za-z0-9/,:;.-_*-+</b>. Developers: consult the <i>generalStringSanitizer</i> function if a 
+      The white-list is limited to: <b>A-Z0-9a-z./-_() ,;:*+=!?@'"#€$%&</b>. Developers: consult the <i>generalStringSanitizer</i> function if a 
       more relaxed sanitizer is needed.
     </p>
     <br>
@@ -132,7 +132,7 @@
 
     function generalStringSanitizer(anyText) {
       var anyText =  String(anyText);
-      anyText = anyText.replace(/[^A-Z0-9a-z_.\/-_ ,;:*+=]/gi,'');
+      anyText = anyText.replace(/[^A-Z0-9a-z_.\/-_() ,;:*+=!?@"'#€$%&]/gi,' ');
       return (anyText);
     }
 
@@ -165,9 +165,9 @@
 
     /* Sanitize url parameters */
     if (table_name !== false) {
-      table_name = table_name.replace(/[^A-Z0-9a-z_.\/-]/gi,'');
+      table_name = table_name.replace(/[^A-Z0-9a-z()_.\/-]/gi,'');
       table_name = table_name.replace('//','/');
-      table_title = table_title.replace(/[^A-Z0-9a-z _.\/-]/gi,'');
+      table_title = table_title.replace(/[^A-Z0-9a-z() _.\/-]/gi,'');
     }
     separator = separator.replace(/[^:;,]/gi,'');
     style = style.replace(/[^A-Za-z,-]/gi,'');
@@ -290,7 +290,7 @@
       var $tableHtmlHeadRow = $("<tr></tr>");
 
       for (var headerIdx = 0; headerIdx < tableDataHeaderRow.length; headerIdx++) {
-        $tableHtmlHeadRow.append($("<th></th>").text(tableDataHeaderRow[headerIdx]));
+        $tableHtmlHeadRow.append($("<th></th>").text(generalStringSanitizer(tableDataHeaderRow[headerIdx])));
       }
 
       $tableHtmlHead.append($tableHtmlHeadRow);
