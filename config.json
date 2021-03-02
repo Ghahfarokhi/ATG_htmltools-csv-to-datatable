@@ -1,0 +1,18 @@
+{
+  "title": "htmltools - csv to datatable",
+  "author": "Amir Taheri-Ghahfarokhi",
+  "description" : "A general purpose tool to render any comma or tab separated data (csv or tsv) files into html datatables",
+  "ogTitle" : "htmltools - csv to datatable",
+  "ogDescription" : "A general purpose tool to render any comma or tab separated data (csv or tsv) files into html datatables",
+  "ogImage" : "https://amirtaheri.info/assets/img/htmltools-csv-to-datatable.png",
+  "ogUrl" : "https://amirtaheri.info/htmltools-csv-to-datatable/index.html",
+  "icon" : "../ghahfarokhi.github.io/assets/img/favicon.ico",
+  "mainCSS" : "../ghahfarokhi.github.io/src/css/main.css",
+  "navbar" : "../ghahfarokhi.github.io/common/navbar.html",
+  "markdownFile" : "README.md",
+  "downloadRepo" : true,
+  "downloadRepoLink" : "https://github.com/Ghahfarokhi/htmltools-csv-to-datatable/archive/master.zip",
+  "downloadIcon": "../ghahfarokhi.github.io/assets/icons/zip-folder-icon.jpg",
+  "downloadIconAlt": "Download .zip",
+  "footer" : "../ghahfarokhi.github.io/common/footer.html"
+}
