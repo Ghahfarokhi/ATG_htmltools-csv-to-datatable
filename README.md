@@ -1,11 +1,13 @@
-# CSV/TSV files to HTML DataTable
+# CSV to DataTable
+
+<a href="https://github.com/Ghahfarokhi/htmltools-csv-to-datatable" target="_blank">
+<img src="./screenshots/github-repo.png" 
+alt="Github Repo"/></a>
 
 Render any csv/tsv file into a **responsive**, **sortable**, and **searchable** HTML datatable without any serverside scripting. 
 The data file could either be provided via a URL parameter [intended usage] or hard coded into the HTML codes. If the URL parameter is used, then the `table.html` file is a stand-alone file that includes all needed html, javascript and css codes, so it doesn't need to be acompanied by any other helper folder or files. It can be essentially used as a general purpose tool to display tabular data. In principle, it should be possible to run it on any server. 
 
-
-[<img src="https://raw.githubusercontent.com/Ghahfarokhi/ghahfarokhi.github.io/main/assets/img/htmltools-csv-to-datatable.png">](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
-
+--- 
 
 ## Usage
 
@@ -19,6 +21,8 @@ The data file could either be provided via a URL parameter [intended usage] or h
 `hover`, `cell-border`, `row-border`, `order-column`. Multiple value combinations can be used together, separated using a comma.
 * `column_filtering` [optional, default: `false`] : will enable per column filtering.
 * `scroll_x` [optional, default: `true`] : if disabled, then columns will overflow if their width exceeds the screen width.
+
+--- 
 
 ### Demo
 
@@ -64,6 +68,11 @@ https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/se
 https://amirtaheri.info/htmltools-csv-to-datatable/table.html
 ```
 
+--- 
+
+[<img src="https://raw.githubusercontent.com/Ghahfarokhi/ghahfarokhi.github.io/main/assets/img/htmltools-csv-to-datatable.png">](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
+
+
 ### Run on localhost
 
 #### MacOS
@@ -85,3 +94,7 @@ Open Google Chrome and navigate to `http://localhost:8080/table.html`.
 
 ### Errors
 Please report errors/bugs to: Amir.Taheri.Ghahfarokhi@gmail.com
+
+---
+
+### Download
