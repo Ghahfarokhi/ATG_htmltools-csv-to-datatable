@@ -4,7 +4,7 @@ Render any csv/tsv file into a **responsive**, **sortable**, and **searchable** 
 The data file could either be provided via a URL parameter [intended usage] or hard coded into the HTML codes. If the URL parameter is used, then the `table.html` file is a stand-alone file that includes all needed html, javascript and css codes, so it doesn't need to be acompanied by any other helper folder or files. It can be essentially used as a general purpose tool to display tabular data. In principle, it should be possible to run it on any server. 
 
 
-[<img src="https://raw.githubusercontent.com/Ghahfarokhi/ghahfarokhi.github.io/main/assets/img/htmltools-csv-to-datatable.png">](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
+[<img src="https://raw.githubusercontent.com/Ghahfarokhi/ghahfarokhi.github.io/main/assets/img/htmltools-csv-to-datatable.png">](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
 
 
 ## Usage
@@ -24,44 +24,44 @@ The data file could either be provided via a URL parameter [intended usage] or h
 
 Note the format of parameters used after the `?` mark in the url examples below:
 
-* **Tab separated**: [default tsv demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
+* **Tab separated**: [default tsv demo](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV%20to%20Datatable%20Demo)
 ```
-https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV to Datatable Demo
+https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/tab_separated_table.tsv&table_title=CSV to Datatable Demo
 ```
 
-* **Semicolon separated**: `&separator=;` [semicolon separated demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
+* **Semicolon separated**: `&separator=;` [semicolon separated demo](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
 ```
-https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;
+https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;
 ```
 
 * **Styling**: See examples below:
-  * `&style=display,compact` : [default](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
-  * `&style=none` : [none](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=none)
-  * `&style=display` : [display](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display)
-  * `&style=compact` : [compact](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=compact)
-  * `&style=stripe` : [stripe](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=stripe)
-  * `&style=hover` : [hover](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=hover)
-  * `&style=cell-border` : [cell-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=cell-border)
-  * `&style=row-border` : [row-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=row-border)
-  * `&style=order-column` : [order-column](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=order-column)
-  * `&style=hover,cell-border` : [hover,cell-border](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=hover,cell-border)
-  * `&style=stripe,compact` : [stripe,compact](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=stripe,compact)
+  * `&style=display,compact` : [default](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;)
+  * `&style=none` : [none](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=none)
+  * `&style=display` : [display](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=display)
+  * `&style=compact` : [compact](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=compact)
+  * `&style=stripe` : [stripe](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=stripe)
+  * `&style=hover` : [hover](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=hover)
+  * `&style=cell-border` : [cell-border](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=cell-border)
+  * `&style=row-border` : [row-border](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=row-border)
+  * `&style=order-column` : [order-column](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=order-column)
+  * `&style=hover,cell-border` : [hover,cell-border](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=hover,cell-border)
+  * `&style=stripe,compact` : [stripe,compact](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&style=stripe,compact)
   * and so on!
 
 
-* **Column filtering**: `&column_filtering=true` [Column filtering demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
+* **Column filtering**: `&column_filtering=true` [Column filtering demo](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&column_filtering=true)
 ```
-https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&column_filtering=true
-```
-
-* **Large datatables scrollX**: default value is true, to disable use `&scroll_x=false` [disabled scroll_x demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false) 
-```
-https://amirtaheri.info/htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false
+https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV to Datatable Demo&separator=;&column_filtering=true
 ```
 
-* **No parameter provided**: a guideline and a dummy array will be rendered, [No parameter demo](https://amirtaheri.info/htmltools-csv-to-datatable/table.html)
+* **Large datatables scrollX**: default value is true, to disable use `&scroll_x=false` [disabled scroll_x demo](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false) 
 ```
-https://amirtaheri.info/htmltools-csv-to-datatable/table.html
+https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html?table_name=data/semicolon_separated_table.csv&table_title=CSV%20to%20Datatable%20Demo&separator=;&scroll_x=false
+```
+
+* **No parameter provided**: a guideline and a dummy array will be rendered, [No parameter demo](https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html)
+```
+https://ghahfarokhi.github.io/ATG_htmltools-csv-to-datatable/table.html
 ```
 
 ### Run on localhost
